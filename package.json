@@ -1,6 +1,6 @@
 {
   "name": "create-sb-react-express",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Create a fullstack monorepo with React + Express + Tailwind + PostgreSQL",
   "bin": {
     "create-sb-react-express": "bin/index.js"
