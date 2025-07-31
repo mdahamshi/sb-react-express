@@ -5,7 +5,14 @@
   "bin": {
     "create-sb-react-express": "bin/index.js"
   },
-  "keywords": ["create", "react", "express", "tailwind", "postgres", "monorepo"],
+  "keywords": [
+    "create",
+    "react",
+    "express",
+    "tailwind",
+    "postgres",
+    "monorepo"
+  ],
   "author": "Mohammad Dahamshi",
   "license": "MIT",
   "dependencies": {
@@ -15,4 +22,3 @@
   },
   "type": "module"
 }
-

@@ -14,7 +14,11 @@
 - 🧰 CLI-based scaffolding via `npx`
 
 ---
+## 🚀 Install
 
+```bash
+npm i -g create-sb-react-express my-app
+````
 ## 🚀 Usage
 
 ```bash
