@@ -10,7 +10,7 @@ import GridLinkCard from '../components/GridLinkCard';
  */
 export async function loader({ request }) {
   const server = import.meta.env.VITE_API_SERVER;
-  const data = await fetchData({ server, limit: 12 });
+  const data = await fetchData({ server, endpoint: 'users', limit: 12 });
   return { data };
 }
 

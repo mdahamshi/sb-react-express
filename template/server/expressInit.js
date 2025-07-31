@@ -22,7 +22,8 @@ function initExpressApp(app) {
   app.use(express.urlencoded({ extended: true }));
 
   // Static files
-  app.use(express.static(path.join(__dirname, 'public')));
+  const clientBuildPath = path.resolve(__dirname, '../client/dist');
+  app.use(express.static(clientBuildPath));
 }
 
 module.exports = initExpressApp;

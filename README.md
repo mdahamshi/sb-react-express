@@ -129,7 +129,9 @@ npm run dev
 ```
 
 ---
-
+### Production
+Server is configured to serve static from client/dist (react app build result).
+see `initExpressApp`
 
 ## 📃 License
 
