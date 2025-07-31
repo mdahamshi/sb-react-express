@@ -1,0 +1,18 @@
+{
+  "name": "create-sb-react-express",
+  "version": "1.0.0",
+  "description": "Create a fullstack monorepo with React + Express + Tailwind + PostgreSQL",
+  "bin": {
+    "create-sb-react-express": "bin/index.js"
+  },
+  "keywords": ["create", "react", "express", "tailwind", "postgres", "monorepo"],
+  "author": "Mohammad Dahamshi",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "execa": "^8.0.0",
+    "fs-extra": "^11.2.0"
+  },
+  "type": "module"
+}
+

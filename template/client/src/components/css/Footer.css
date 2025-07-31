@@ -1,0 +1,7 @@
+.sb-footer {
+  margin-top: auto;
+  padding: 8px;
+  z-index: 5;
+  width: 100%;
+  background-color: white;
+}
