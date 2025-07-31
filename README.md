@@ -17,7 +17,7 @@
 ## 🚀 Install
 
 ```bash
-npm i -g create-sb-react-express my-app
+npm i -g create-sb-react-express
 ````
 ## 🚀 Usage
 
