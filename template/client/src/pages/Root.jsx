@@ -13,17 +13,14 @@ export default function Root() {
   const { appName } = useApp();
 
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      '--sb-theme-color',
-      getRandomColor()
-    );
+    document.documentElement.style.setProperty('--primary', getRandomColor());
   }, []);
 
   return (
     <>
       <Header
         subtitle=""
-        left={<h2 className="header-logo">{appName}</h2>}
+        left={<h2 className="text-primary text-2xl">{appName}</h2>}
         right={<Navbar links={links} />}
       />
 

@@ -1,5 +1,5 @@
 import './css/StarRating.css';
-export function StarRating({ rate, color = 'var(--sb-theme-color,gold)' }) {
+export function StarRating({ rate, color = 'var(--primary,gold)' }) {
   const percent = `${(Math.min(rate, 5) / 5) * 100}%`;
 
   return (

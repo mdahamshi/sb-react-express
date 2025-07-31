@@ -1,5 +1,5 @@
 .error-page {
-  color: var(--sb-theme-color);
+  color: var(--primary);
   display: flex;
   flex-direction: column;
   align-items: center;

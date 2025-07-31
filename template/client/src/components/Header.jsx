@@ -26,9 +26,7 @@ export default function Header({
   return (
     <header className={`header ${className}`}>
       <div className="header-content">
-        {left && (
-          <Link className="clickable header-side header-left">{left}</Link>
-        )}
+        {left && <Link className="">{left}</Link>}
 
         <div className="header-main">
           <h1 className="header-title">{title}</h1>

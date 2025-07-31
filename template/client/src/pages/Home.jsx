@@ -38,7 +38,7 @@ export default function Home() {
         <h2>Users List (from DB)</h2>
         <Grid>
           {users.map((user) => (
-            <GridLinkCard link={`users/${user.id}`}>
+            <GridLinkCard key={user.id} link={`users/${user.id}`}>
               <div key={user.id}>
                 <h3>{user.username}</h3>
                 <p>User ID: {user.id}</p>
@@ -46,8 +46,6 @@ export default function Home() {
             </GridLinkCard>
           ))}
         </Grid>
-
-        <ul></ul>
       </section>
       <section>
         <h2>

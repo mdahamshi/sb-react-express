@@ -3,6 +3,6 @@
 }
 
 .sb-copyright a {
-  color: var(--sb-theme-color, black);
+  color: var(--primary, black);
   text-decoration: none;
 }

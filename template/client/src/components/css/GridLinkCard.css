@@ -58,7 +58,7 @@
   margin-top: 0.5rem;
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--sb-theme-color);
+  color: var(--primary);
 }
 .grid-card-link {
   text-decoration: none;
