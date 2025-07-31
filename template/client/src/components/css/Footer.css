@@ -1,3 +1,7 @@
+.sb-footer * {
+  margin: 0;
+  padding: 0;
+}
 .sb-footer {
   margin-top: auto;
   padding: 8px;

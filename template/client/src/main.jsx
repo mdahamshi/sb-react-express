@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')).render(
         happyCustomers: 3821,
       }}
     >
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AppContext.Provider>
   </StrictMode>
 );

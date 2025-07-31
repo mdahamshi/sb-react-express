@@ -1,8 +1,8 @@
-const db = require("../db/queries.js");
+const db = require('../db/queries.js');
 
 const usersCreateGet = (req, res) => {
   res.json({
-    title: "Create user",
+    title: 'Create user',
     user: {},
   });
 };
@@ -10,18 +10,18 @@ const usersCreateGet = (req, res) => {
 const usersGetUsers = async (req, res) => {
   const usernames = await db.getAllUsernames();
   res.json({
-    title: "Create user",
+    title: 'Create user',
     users: usernames,
   });
 };
 
 const usersCreatePost = async (req, res) => {
   const { username } = req.body;
-  if (!username) throw new Error("No user name provided");
+  if (!username) throw new Error('No user name provided');
 
   await db.insertUsername(username);
   res.status(201).json({
-    message: "User created",
+    message: 'User created',
     username,
   });
 };

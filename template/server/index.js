@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 
 // Initialize express settings and middleware
 
-
 initExpressApp(app);
 registerRoutes(app);
 

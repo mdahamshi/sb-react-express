@@ -110,8 +110,17 @@ node db/populatedb.js
 > ⚠️ Make sure the database service is up and reachable before running this script.
 
 ---
+### 3. Rename .env.example to .env
 
-### 3. Start both apps
+In server and client there is .env.example files
+
+```bash
+cd client && mv .env.example .env && cd ..
+cd server && mv .env.example .env && cd ..
+```
+
+---
+### 4. Start both apps
 
 From root:
 

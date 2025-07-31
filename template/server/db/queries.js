@@ -1,11 +1,10 @@
-import pool from './pools.js'
+import pool from './pools.js';
 
 export async function getAllUsernames() {
-  const { rows } = await pool.query("SELECT * FROM usernames");
+  const { rows } = await pool.query('SELECT * FROM usernames');
   return rows;
 }
 
 export async function insertUsername(username) {
-  await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
+  await pool.query('INSERT INTO usernames (username) VALUES ($1)', [username]);
 }
-
