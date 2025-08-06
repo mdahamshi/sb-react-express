@@ -8,7 +8,7 @@
 - 🧩 Monorepo structure with `npm` workspaces
 - ⚛️ Frontend: React + Vite + Tailwind CSS
 - 🚀 Backend: Express + PostgreSQL (via `pg`)
-- 🐳 Docker-ready backend (`docker-compose.yml` for Postgres)
+- 🐳 Docker-ready  (`docker-compose.yml` for Postgres)
 - 🧪 Test-ready frontend structure
 - ⚡ Unified `npm run dev` to start both servers at once
 - 🧰 CLI-based scaffolding via `npx`
@@ -91,21 +91,15 @@ The generated project uses `npm workspaces` and unified dev scripts:
 
 ## 🛠️ Development Setup
 
-### 1. Start Postgres via Docker
+### 1. Start Postgres, Express, Nginx via Docker
 
 ```bash
-cd server
 docker-compose up -d
 ```
 
-### 2. Run DB Seed Script (first time only)
+### 2. Visit localhost:8080  
 
-To populate the PostgreSQL database with initial data:
-
-```bash
-cd server
-node db/populatedb.js
-```
+Visit http://localhost:8080, you can change the port at docker-compose.override.yml
 
 > ⚠️ Make sure the database service is up and reachable before running this script.
 
@@ -120,18 +114,17 @@ cd server && mv .env.example .env && cd ..
 ```
 
 ---
-### 4. Start both apps
+### 4. Atlternative: Start both client/server (make sure you set up DB)
 
 From root:
 
 ```bash
 npm run dev
 ```
-
+You can use the provided sserver/docker-compose.yml to setup a db quickly.
 ---
 ### Production
-Server is configured to serve static from client/dist (react app build result).
-see `initExpressApp`
+docker-compose.ynml is ready for building the app.
 
 ## 📃 License
 

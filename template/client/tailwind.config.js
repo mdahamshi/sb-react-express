@@ -3,8 +3,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'hsl(var(--primary) / <alpha-value>)',
-        accent: 'hsl(var(--accent) / <alpha-value>)',
+        // primary: 'hsl(var(--primary) / <alpha-value>)',
+        // accent: 'hsl(var(--accent) / <alpha-value>)',
+        // primaryDark: 'var(--primaryDark)',
       },
     },
   },

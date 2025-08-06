@@ -1,64 +1,83 @@
-import React from 'react';
-import { fetchData } from '../api/fetch';
-import { useLoaderData } from 'react-router-dom';
-import Grid from '../components/Grid';
-import GridLinkCard from '../components/GridLinkCard';
-/**
- * Loader function to fetch user data from the Express backend.
- * The backend server address is stored in the client `.env` file
- * under the variable: VITE_API_SERVER.
- */
-export async function loader({ request }) {
-  const server = import.meta.env.VITE_API_SERVER;
-  const data = await fetchData({ server, endpoint: 'users', limit: 12 });
-  return { data };
-}
+import { useState } from 'react';
+
+import MessageBubble from '../components/MessageBubble';
+import { useApp } from '../context/AppContext';
+import { getRandomColor } from '@sarawebs/sb-utils';
+import { MessageCircle } from 'lucide-react';
+import NewMessage from '../components/NewMessage';
+import { useMessages } from '../context/MessageContext';
+
+import { Button } from 'flowbite-react';
 
 export default function Home() {
-  const { data } = useLoaderData();
-  const users = data.users;
+  const { messages, removeMessage, loading } = useMessages();
 
+  const { appName } = useApp();
+  const [open, setModal] = useState(false);
+
+  const handleModalClose = (refetch) => {
+    window.history.replaceState(null, '', '/');
+    setModal(false);
+  };
+  const handelDelete = (id) =>
+    setData((prev) => prev.filter((msg) => msg.id !== id));
+  const onMessageUpdate = ({ text, name, id }) => {
+    setData((prev) =>
+      prev.map((msg) => {
+        if (msg.id == id)
+          return {
+            ...msg,
+            text,
+            name,
+          };
+        else return msg;
+      })
+    );
+  };
   return (
-    <main className="home">
-      <h1>
-        Welcome to the{' '}
-        <a href="https://sarawebs.com" target="_blank" rel="noopener">
-          SaraWebs
-        </a>{' '}
-        React + Express starter kit
+    <div className="home">
+      <h1 className="text-4xl font-bold mb-4 text-primary">
+        Welcome to the {appName}
       </h1>
-      <p>
-        This data is loaded from an Express.js server connected to a real
-        database. Configuration details such as the server URL and database
-        connection settings are managed securely using <code>.env</code> files
-        on both the client and server sides.
-      </p>
 
-      <section className="user-list">
-        <h2>Users List (from DB)</h2>
-        <Grid>
-          {users.map((user) => (
-            <GridLinkCard key={user.id} link={`users/${user.id}`}>
-              <div key={user.id}>
-                <h3>{user.username}</h3>
-                <p>User ID: {user.id}</p>
-              </div>
-            </GridLinkCard>
+      <section className="msg-list">
+        <div className="flex flex-col  gap-4 mx-auto max-w-100">
+          {messages.map((msg) => (
+            <MessageBubble
+              key={msg.id}
+              msg={msg}
+              avatarColor={getRandomColor()}
+              onSave={onMessageUpdate}
+            />
           ))}
-        </Grid>
+        </div>
+
+        <ul></ul>
       </section>
-      <section>
+      <section className="mt-5 dark:text-white">
         <h2>
           Visit{' '}
           <a
             aria-label="Git Repo"
-            href="https://github.com/mdahamshi/sb-react-express#readme"
+            href="https://github.com/mdahamshi/top-basic-msg-full"
           >
             Git Repo
           </a>{' '}
           for more information
         </h2>
       </section>
-    </main>
+      <Button
+        className="fixed bottom-4 p-0 right-4 z-50 shadow-lg bg-primary text-white hover:bg-primary/70 w-14 h-14 rounded-full flex items-center justify-center"
+        onClick={() => {
+          if (location.pathname !== '/new') {
+            window.history.replaceState(null, '', '/new');
+            setModal(true);
+          }
+        }}
+      >
+        <MessageCircle size={24} strokeWidth={3}></MessageCircle>
+      </Button>
+      <NewMessage open={open} onClose={handleModalClose} />
+    </div>
   );
 }

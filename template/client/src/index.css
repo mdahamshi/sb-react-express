@@ -1,11 +1,20 @@
 @import 'tailwindcss';
+@plugin 'flowbite-react/plugin/tailwindcss';
+@source '../.flowbite-react/class-list.json';
+@reference './theme.css';
+@custom-variant dark (&:where(.dark, .dark *));
 
 * {
   box-sizing: border-box;
 }
+
 :root {
-  --accent: 340 82% 52%;
+  --primary: 214 80% 55%;
+  --accent: var(--primary);
+  --primaryDark: #1f2937;
+  --bgPrimary: #f9f9f9;
 }
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -16,11 +25,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  font-size: 0.875rem;
+  font-size: 1rem;
 
   --lite-gray: #f0f1f4;
   --label-width: 120px;
-  --primary: #3080e8;
   --sb-conent-bg: #f9f9f9;
   --sb-corner-radius: 12px;
   --sb-padding: 16px;
@@ -31,7 +39,7 @@
   --sb-hero-bgc: #0891b2;
 }
 
-main {
+main .wrap {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -40,14 +48,6 @@ main {
   max-width: var(--sb-max-content-width);
   padding: 24px;
   width: 100%;
-}
-
-.flex-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
 }
 
 main {
@@ -82,43 +82,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100dvh;
-  background-color: var(--sb-conent-bg);
+  background-color: var(--bgPrimary);
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button,
-.link-btn {
-  border-radius: 4px;
-  border: 1px solid transparent;
-  padding: 0.6rem 1.2rem;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  text-align: center;
-}
-
-button,
-.link-btn {
-  background-color: rgb(245, 243, 243);
-  color: var(--primary);
-}
-
-button.primary,
-.link-btn.primary {
-  background-color: var(--primary);
-  color: white;
-}
-
-button a {
-  color: inherit;
-}
-
 .clickable:hover,
 button:hover,
 .link-btn:hover {
@@ -128,10 +93,13 @@ button:hover,
   transition: all 0.3s ease;
 }
 
-button:hover,
-.link-btn:hover {
-  border-color: var(--primary);
+.dark {
+  --primary: white;
+  --accent: var(--primary);
+  --primaryDark: #1f2937;
+  --bgPrimary: rgb(8, 11, 36);
 }
-section {
-  margin-bottom: 16px;
+
+.btn-primary {
+  @apply bg-primary dark:bg-primary hover:bg-primary/65 dark:hover:bg-primary/65;
 }

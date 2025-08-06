@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@sarawebs/sb-utils": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "flowbite-react": "^0.12.5",
     "lucide-react": "^0.534.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
