@@ -1,6 +1,5 @@
 {
   "name": "sb-react-express",
-  "private": true,
   "workspaces": [
     "client",
     "server"
